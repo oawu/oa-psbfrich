@@ -9,15 +9,13 @@
 //   <span></span>
 // </label>
 @mixin checkbox($color: rgba(69, 139, 244, 1.00)){
-  $w: 4px;
   position: relative;
   display: inline-block;
   cursor: pointer;
   font-size: 13px;
   height: 20px;
   line-height: 20px;
-  padding-left: 24px;
-  $x: '_checkbox_r_'+random(1000);
+  padding-left: 28px;
 
   > * {
     position: absolute;
@@ -25,32 +23,13 @@
     top: 0;
     display: inline-block;
   }
-  input {
-    @include opacity(0);
-    z-index: 2;
-    cursor: pointer;
-    &[disabled] {
-      cursor: not-allowed;
-    }
-    &:not([disabled]) {
-      &:checked {
-        ~ span {
-          &:before {
-            @include box-shadow(inset 1px 1px 1px rgba(0, 0, 0, .1), inset 0 0 1px rgba(0, 0, 0, .1));
-          }
-          &:after {
-            color: rgba(255, 255, 255, 1.00);
-            @include text-shadow(.5px .5px 2px rgba(0, 0, 0, .3));
-            @include box-shadow(none);
-          }
-        }
-      }
-    }
-  }
+
   span {
     width: 20px;
     height: 20px;
     background-color: rgba(255, 255, 255, 1.00);
+    border: 1px solid rgba(207, 208, 209, 1.00);
+    @include border-radius(3px);
     z-index: 1;
 
     &:before, &:after {
@@ -69,8 +48,9 @@
       @include box-shadow(inset 0 0 1px rgba(0, 0, 0, .1));
     }
     &:after {
-      content: "✔";
-      @content;
+      content: "\e928";
+      font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+      font-weight: bold;
 
       left: 2px;
       top: 2px;
@@ -81,6 +61,7 @@
       background-color: rgba(255, 255, 255, 1.00);
       color: rgba(255, 255, 255, 1.00);
       background-image: none;
+      color: white;
       z-index: 2;
       text-align: center;
       @include box-shadow(.5 .5 1px rgba(0, 0, 0, .1));
@@ -89,45 +70,13 @@
   }
 
   input {
-    &:not([disabled]) {
-      &:checked {
-        ~ span {
-          &:after {
-            background-color: $color;
-          }
-        }
-      }
-    }
-  }
-  span {
-    &:before {
-      background-color: $color;
-    }
-  }
-
-  &.loading {
-    span {
-      &:before {
-        @include border-radius(50%);
-        @include background-image(linear-gradient(rgba(184, 241, 148, 1.00) 0%, rgba(89, 178, 169, 1.00) 100%));
-        @include animation(#{$x} 1s linear infinite);
-      }
-      &:after {
-        content: "";
-        left: $w;
-        top: $w;
-        width: calc(100% - #{$w} * 2);
-        height: calc(100% - #{$w} * 2);
-        @include border-radius(50%);
-      }
-    }
-    input:checked {
+    @include opacity(0);
+    &:checked {
       ~ span {
         &:after {
-          background-color: white;
+          color: rgba(103, 104, 105, 1.00);
         }
       }
     }
   }
-  @include keyframes(#{$x}) { 0% { @include rotate(0); } 100% { @include rotate(360deg); } }
 }
