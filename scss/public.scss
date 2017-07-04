@@ -862,8 +862,6 @@ a {
   }
 }
 
-
-
 .main_02 {
   display: inline-block;
   width: 100%;
@@ -3369,13 +3367,15 @@ textarea, input {
     }
   }
   > form {
-    display: inline-block;
+    display: none;
     width: calc(100% + 15px * 2);
     margin-left: -15px;
     padding-top: 16px;
     padding: 15px;
     background-color: rgba(234, 193, 52, 1.00);
-
+    &.show {
+      display: inline-block;
+    }
     > header {
       display: inline-block;
       width: 100%;

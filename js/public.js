@@ -75,7 +75,7 @@ $(function () {
 
   if ($('.bottom-back').length)
     $('.bottom-back').click (function () {
-      $('body').animate ({ scrollTop: 0 },'slow');
+      $body.animate ({ scrollTop: 0 },'slow');
     });
   
   $('.main_05 .menu > div').each (function () {
@@ -113,5 +113,10 @@ $(function () {
 
   if ($('.main_12').length || $('.main_13').length || $('.main_25').length)
     $body.addClass ('t2');
-
+  
+  $('.t23 >a').click (function () {
+    $(this).addClass ('active').siblings ().removeClass ('active');
+    if ($(this).hasClass ('form'))
+      $body.animate ({ scrollTop: $('.main_23 form').addClass ('show').offset ().top - 100 },'slow');
+  });
 });
