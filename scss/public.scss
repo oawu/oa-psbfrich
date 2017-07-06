@@ -3468,6 +3468,42 @@ textarea, input {
       margin-top: 15px;
     }
   }
+  > #ct {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+    &.show {
+      display: inline-block;
+    }
+    h2 {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      color: #030304;
+      font-size: 20px;
+    }
+    > div {
+      display: inline-block;
+      width: calc(100% + 14px);
+      height: 25px;
+      line-height: 25px;
+      text-align: left;
+      position: relative;
+      padding-left: 20px;
+      font-size: 13px;
+      @include overflow-docx3();
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        color: rgba(0, 163, 228, 1.00);
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 .main_24 {

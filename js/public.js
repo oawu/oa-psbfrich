@@ -118,5 +118,7 @@ $(function () {
     $(this).addClass ('active').siblings ().removeClass ('active');
     if ($(this).hasClass ('form'))
       $body.animate ({ scrollTop: $('.main_23 form').addClass ('show').offset ().top - 100 },'slow');
+    if ($(this).hasClass ('ct'))
+      $body.animate ({ scrollTop: $('.main_23 #ct').addClass ('show').offset ().top - 100 },'slow');
   });
 });
