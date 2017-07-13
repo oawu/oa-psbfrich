@@ -79,11 +79,23 @@ $(function () {
     });
   
   $('.main_05 .menu > div').each (function () {
-    var $that = $(this);
-    $that.addClass ('n' + $that.find ('> *').length);
+    $(this).data ('a', $(this).height () + 10);
   });
-  $('.main_05 .menu > a').click (function () {
-    $(this).toggleClass ('show');
+  $('.main_05 .menu > a').each (function () {
+    if ($(this).hasClass ('show'))
+      $(this).next ().css ({'height': $(this).next ().data ('a')});
+    else
+      $(this).next ().css ({'height': 0});
+    
+    $(this).click (function () {
+      $(this).toggleClass ('show');
+
+
+      if ($(this).hasClass ('show'))
+        $(this).next ().css ({'height': $(this).next ().data ('a')});
+      else
+        $(this).next ().css ({'height': 0});
+    });
   });
 
   $('.main_08 .main, .main_09 .main').each (function () {
@@ -93,6 +105,8 @@ $(function () {
         $div = $that.find ('.choice > div'),
         $left = $choice.find ('a').first (),
         $right = $choice.find ('a').last ();
+    
+    $div.append ($div.find ('>div').clone ());
     
     $div.find ('>*').click (function () {
       if ($(this).data ('res') && $(this).data ('res').length)

@@ -1095,19 +1095,19 @@ a {
         &:before {
           content: '\e924';
         }
-        + div {
-          @for $i from 1 through 50 {
-            &.n#{$i} {
-              height: $i * 30px + 10px;
-            }
-          }
-        }
+        // + div {
+        //   @for $i from 1 through 50 {
+        //     &.n#{$i} {
+        //       height: $i * 30px + 10px;
+        //     }
+        //   }
+        // }
       }
     }
     > div {
       display: block;
       overflow: hidden;
-      height: 0;
+      // height: 0;
       @include transition(height .3s);
       
 
@@ -1116,8 +1116,8 @@ a {
       }
       > a {
         color: rgba(148, 149, 150, 1.00);
-        height: 30px;
-        line-height: 30px;
+        min-height: 24px;
+        line-height: 24px;
         padding-left: 40px;
         font-size: 14px;
       }
@@ -2040,7 +2040,11 @@ a {
       width: 100%;
       font-size: 16px;
     }
-    > .checkbox {
+    .radio {
+      @include radio;
+    }
+    > .checkbox, > .radio {
+      width: 100%;
       margin-top: 8px;
       + .n2 {
         margin-top: 8px;
@@ -3550,5 +3554,40 @@ textarea, input {
     padding-left: 24px;
     font-weight: normal;
 
+  }
+}
+.pages {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  
+  > div {
+    display: inline-block;
+    @include clearfix();
+    margin: 0 auto;
+
+    > * {
+      float: left;
+      display: inline-block;
+      width: 35px;
+      height: 30px;
+      line-height: 30px - 2px;
+      + * {
+        margin-left: 4px;
+      }
+      font-size: 14px;
+      @include border-radius(2px);
+      background-color: rgba(248, 206, 208, 1.00);
+      border: 1px solid rgba(248, 206, 208, 1.00);
+      color: white;
+      @include transition(color .3s,background-color .3s);
+      
+      &.active, &:hover, &:active {
+        color: rgba(238, 129, 134, 1.00);
+        background-color: white;
+      }
+    }
   }
 }
