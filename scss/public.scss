@@ -1227,6 +1227,15 @@ a {
         @include border-radius(2px);
         text-align: center;
         font-size: 14px;
+        &.c1 {
+          background-color: rgba(119, 206, 189, 1.00);
+        }
+        &.c2 {
+          background-color: rgba(237, 155, 221, 1.00);
+        }
+        &.c3 {
+          background-color: rgba(219, 191, 56, 1.00);
+        }
       }
       time {
         width: calc(100% - 75px);
