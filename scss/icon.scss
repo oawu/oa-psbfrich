@@ -6,15 +6,8 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-check2:before {
-  content: "\e928";
-}
-.icon-triangle-down:before {
-  content: "\e927";
-}
-.icon-brand:before {
+.icon-peop:before {
   content: "\e926";
-  color: #3b5998;
 }
 .icon-f_iocn_01:before {
   content: "\e900";
@@ -129,4 +122,13 @@
 }
 .icon-plus:before {
   content: "\e925";
+}
+.icon-brand:before {
+  content: "\e927";
+}
+.icon-triangle-down:before {
+  content: "\e928";
+}
+.icon-check2:before {
+  content: "\e929";
 }

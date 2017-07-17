@@ -135,4 +135,24 @@ $(function () {
     if ($(this).hasClass ('ct'))
       $body.animate ({ scrollTop: $('.main_23 #ct').addClass ('show').offset ().top - 100 },'slow');
   });
+  $('.main_21 .all[data-total][data-score][data-now]').each (function () {
+    var $that = $(this);
+    var total = $that.data ('total');
+    var score = $that.data ('score');
+    var now = $that.data ('now');
+    var $month = $that.find ('.month').map (function () { $(this).addClass ($(this).find ('.start').length ? 'first' : ($(this).find ('.last').length ? 'last' : '')); });
+
+    var f = parseInt ((score / total) * 100 / 25, 10);
+    var s = parseInt ((((score / total) * 100 / 25) - f) * 100, 10);
+    
+    for (var i = 0; i < f; i++)
+      $that.find ('.month').eq (i).find ('div').eq (1).append (
+        $('<div />').addClass ('score').attr ('data-val', 100).append (
+          $('<b />').text (score)).append (' 分'));
+
+    $that.find ('.month').eq (i).find ('div').eq (1).append (
+        $('<div />').addClass ('score').attr ('data-val', s).append (
+          $('<b />').text (score)).append (' 分')).append (
+        $('<div />').addClass ('now').text (now));
+  });
 });
