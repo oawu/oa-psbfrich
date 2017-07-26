@@ -67,9 +67,16 @@ $(function () {
 
   $('._ic').imgLiquid ({verticalAlign: 'center'});
   $('#menu .links .subs + div').each (function () {
-    $(this).addClass ('n' + $(this).find ('> a').length);
+    $(this).data ('a', 0).data ('b', $(this).outerHeight ()).css ({'height': 0});
+
     $(this).prev ().click (function () {
       $(this).toggleClass ('show');
+      
+      var $t = $(this).next ();
+      if ($(this).hasClass ('show'))
+        $t.css ({'height': $t.data ('b')});
+      else
+        $t.css ({'height': $t.data ('a')});
     });
   });
 
