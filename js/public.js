@@ -167,4 +167,10 @@ $(function () {
       }.bind ($(this)), 300 * (i + 1));
     });
   });
+  $('.icon-icon_voice').click (function () {
+    $(this).addClass ('icon-icon_stop-01').removeClass ('icon-icon_voice');
+    setTimeout (function () {
+      $(this).removeClass ('icon-icon_stop-01').addClass ('icon-icon_voice');
+    }.bind ($(this)), 1000);
+  });
 });
