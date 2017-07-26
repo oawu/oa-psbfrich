@@ -3531,7 +3531,7 @@ textarea, input {
           .score {
             float: left;
             display: inline-block;
-            width: 90px;
+            width: 0;
             height: 58px;
             line-height: 58px;
             background-color: rgba(244, 127, 55, 1.00);
@@ -3541,13 +3541,41 @@ textarea, input {
             -webkit-background-size: 10px 10px;
             font-size: 13px;
             text-align: center;
-            overflow: hidden;
+            position: relative;
+            @include transition(width .3s);
+            
+
             b {
               font-size: 25px;
+              @include opacity(0);
+              @include transition(opacity .3s);
+              &:after {
+                content: ' 分';
+                font-size: 13px;
+                font-weight: normal;
+              }
             }
-            @for $i from 0 through 100 {
-              &[data-val='#{$i}'] {
-                width: $i * 1%;
+            &.tra {
+              @for $i from 0 through 100 {
+                &[data-val='#{$i}'] {
+                  width: $i * 1%;
+                }
+              }
+              b {
+                @include opacity(1);
+              }
+              + .now {
+                @include opacity(1);
+              }
+            }
+            &.a {
+              b {
+                position: absolute;
+                left: 100%;
+                top: 0;
+                display: inline-block;
+                height: 58px;
+                width: 90px;
               }
             }
           }
@@ -3565,6 +3593,9 @@ textarea, input {
             color: white;
             @include border-radius(3px);
             z-index: 99;
+            @include opacity(0);
+            @include transition(opacity .3s);
+            
 
 
             &:before {
@@ -3611,9 +3642,11 @@ textarea, input {
         > div {
           + div {
             .score {
-              @for $i from 0 through 100 {
-                &[data-val='#{$i}'] {
-                  width: calc((100% - 70px) * #{$i / 100});
+              &.tra {
+                @for $i from 0 through 100 {
+                  &[data-val='#{$i}'] {
+                    width: calc((100% - 70px) * #{$i / 100});
+                  }
                 }
               }
             }
@@ -3624,9 +3657,11 @@ textarea, input {
         > div {
           + div {
             .score {
-              @for $i from 0 through 100 {
-                &[data-val='#{$i}'] {
-                  width: calc((100% - 90px) * #{$i / 100});
+              &.tra {
+                @for $i from 0 through 100 {
+                  &[data-val='#{$i}'] {
+                    width: calc((100% - 90px) * #{$i / 100});
+                  }
                 }
               }
             }
