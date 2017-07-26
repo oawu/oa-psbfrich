@@ -6,8 +6,11 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-peop:before {
-  content: "\e926";
+.icon-icon_fb:before {
+  content: "\e91a";
+}
+.icon-icon_stop-01:before {
+  content: "\e927";
 }
 .icon-f_iocn_01:before {
   content: "\e900";
@@ -87,9 +90,6 @@
 .icon-icon_cam:before {
   content: "\e919";
 }
-.icon-icon_fb:before {
-  content: "\e91a";
-}
 .icon-icon_home:before {
   content: "\e91b";
 }
@@ -123,12 +123,15 @@
 .icon-plus:before {
   content: "\e925";
 }
-.icon-brand:before {
-  content: "\e927";
+.icon-peop:before {
+  content: "\e926";
 }
-.icon-triangle-down:before {
+.icon-brand:before {
   content: "\e928";
 }
-.icon-check2:before {
+.icon-triangle-down:before {
   content: "\e929";
+}
+.icon-check2:before {
+  content: "\e92a";
 }
