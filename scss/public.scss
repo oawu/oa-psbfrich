@@ -2672,6 +2672,8 @@ textarea, input {
       margin-right: 8px;
       color: rgba(42, 42, 43, 1.00);
       font-size: 15px;
+      height: auto;
+      min-height: 20px;
       
       i {
         position: relative;
@@ -2693,6 +2695,8 @@ textarea, input {
       margin-right: 10px;
       font-size: 15px;
       color: rgba(42, 42, 43, 1.00);
+      height: auto;
+      min-height: 20px;
     }
   }
   .unit2 {
