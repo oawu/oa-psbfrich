@@ -3715,3 +3715,7 @@ textarea, input {
     }
   }
 }
+
+#ui-datepicker-div {
+  z-index: 2 !important;
+}
