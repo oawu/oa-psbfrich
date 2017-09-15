@@ -312,11 +312,17 @@ a {
       }
       height: $bottomTabsH - 30px;
       line-height: $bottomTabsH - 30px;
-      font-size: 13px;
+      font-size: .8em;
     }
     &.icon-icon_n04, &.icon-icon_n01 {
       &:before {
         font-size: 30px;
+      }
+    }
+
+    &.icon-icon_n08 {
+      &:before {
+        font-size: 36px;
       }
     }
 
